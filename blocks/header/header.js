@@ -123,6 +123,11 @@ if (navTools) {
   });
 }
 
+  nav.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((li) => {
+    const link = li.querySelector(':scope > a');
+    if (link && new URL(link.href).pathname === window.location.pathname) li.classList.add('active');
+  });
+
   const navBrand = nav.querySelector('.nav-brand');
   const brandLink = navBrand.querySelector('.button');
   if (brandLink) {
