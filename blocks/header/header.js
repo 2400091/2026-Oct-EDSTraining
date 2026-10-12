@@ -102,11 +102,21 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['brand', 'sections', 'tools'];
+  const classes = ['topbar', 'brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
   });
+  const navTools = nav.querySelector('.nav-tools');
+if (navTools) {
+  navTools.querySelectorAll('h6').forEach((label) => {
+    const value = label.nextElementSibling;
+    const item = document.createElement('div');
+    item.className = 'nav-info';
+    label.before(item);
+    item.append(label, value);
+  });
+}
 
   const navBrand = nav.querySelector('.nav-brand');
   const brandLink = navBrand.querySelector('.button');
