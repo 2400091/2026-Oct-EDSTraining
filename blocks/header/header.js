@@ -110,11 +110,16 @@ export default async function decorate(block) {
   const navTools = nav.querySelector('.nav-tools');
 if (navTools) {
   navTools.querySelectorAll('h6').forEach((label) => {
+    const icon = label.previousElementSibling;
     const value = label.nextElementSibling;
     const item = document.createElement('div');
     item.className = 'nav-info';
+    const text = document.createElement('div');
     label.before(item);
-    item.append(label, value);
+    text.append(label, value);
+    if (icon && icon.querySelector('.icon')) item.append(icon.querySelector('.icon'));
+    if (icon && !icon.textContent.trim()) icon.remove();
+    item.append(text);
   });
 }
 
