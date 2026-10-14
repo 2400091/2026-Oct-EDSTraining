@@ -328,13 +328,13 @@ header nav .nav-extra p:first-child {
     height: 28px;
   }
 
-  header nav .nav-topbar p:last-child {
+  header nav .nav-topbar .nav-social {
     margin-left: auto;
     gap: 0;
     border-right: 1px solid var(--davana-line);
   }
 
-  header nav .nav-topbar p:last-child a {
+  header nav .nav-topbar .nav-social a {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -342,7 +342,7 @@ header nav .nav-extra p:first-child {
     border-left: 1px solid var(--davana-line);
   }
 
-  header nav .nav-topbar p:last-child .icon {
+  header nav .nav-topbar .nav-social .icon {
     width: 26px;
     height: 26px;
   }
@@ -394,7 +394,7 @@ header nav .nav-extra p:first-child {
   header nav .nav-sections .default-content-wrapper > ul > li {
     position: relative;
     display: flex;
-    align-items: stretch;
+    align-items: center;
     padding: 0;
     border: 0;
     color: var(--davana-light);
@@ -403,10 +403,11 @@ header nav .nav-extra p:first-child {
   }
 
   header nav .nav-sections .default-content-wrapper > ul > li > a,
-  header nav .nav-sections .default-content-wrapper > ul > li > button {
+  header nav .nav-sections .default-content-wrapper > ul > li > button,
+  header nav .nav-sections .default-content-wrapper > ul > li > p {
     display: flex;
     align-items: center;
-    height: 100%;
+    height: var(--davana-bar-h);
     padding: 0 26px;
     color: var(--davana-light);
   }
@@ -418,8 +419,9 @@ header nav .nav-extra p:first-child {
   }
 
   /* dropdown arrow */
-  header nav .nav-sections .nav-drop > a,
-  header nav .nav-sections .nav-drop > button {
+  header nav .nav-sections .default-content-wrapper > ul > li.nav-drop > a,
+  header nav .nav-sections .default-content-wrapper > ul > li.nav-drop > button,
+  header nav .nav-sections .default-content-wrapper > ul > li.nav-drop > p {
     padding-right: 46px;
   }
 
@@ -504,19 +506,19 @@ header nav .nav-extra p:first-child {
     text-align: right;
   }
 
-  header nav .nav-extra p:last-child {
+  header nav .nav-extra .nav-search {
     display: flex;
     background: var(--davana-brown);
   }
 
-  header nav .nav-extra p:last-child a {
+  header nav .nav-extra .nav-search a {
     display: flex;
     align-items: center;
     justify-content: center;
     width: 90px;
   }
 
-  header nav .nav-extra p:last-child .icon {
+  header nav .nav-extra .nav-search .icon {
     width: 28px;
     height: 28px;
   }
