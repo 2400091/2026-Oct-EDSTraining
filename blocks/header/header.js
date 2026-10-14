@@ -123,6 +123,13 @@ if (navTools) {
   });
 }
 
+  // tag social and search paragraphs so CSS can find them
+  nav.querySelectorAll('.nav-topbar p, .nav-extra p').forEach((p) => {
+    if (!p.textContent.trim() && p.querySelector('.icon')) {
+      p.classList.add(p.closest('.nav-topbar') ? 'nav-social' : 'nav-search');
+    }
+  });
+
   nav.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((li) => {
     const link = li.querySelector(':scope > a');
     if (link && new URL(link.href).pathname === window.location.pathname) li.classList.add('active');
