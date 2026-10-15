@@ -102,7 +102,7 @@ export default async function decorate(block) {
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
 
-  const classes = ['topbar', 'brand', 'sections', 'tools'];
+  const classes = ['topbar', 'brand', 'sections', 'tools', 'extra'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
@@ -130,10 +130,15 @@ if (navTools) {
     }
   });
 
-  nav.querySelectorAll('.nav-sections .default-content-wrapper > ul > li').forEach((li) => {
-    const link = li.querySelector(':scope > a');
-    if (link && new URL(link.href).pathname === window.location.pathname) li.classList.add('active');
-  });
+  const lis = [...nav.querySelectorAll('.nav-sections .default-content-wrapper > ul > li')];
+  const path = window.location.pathname;
+  const activeLi = (path === '/' || path === '/index')
+    ? lis[0]
+    : lis.find((li) => {
+      const a = li.querySelector(':scope > a');
+      return a && new URL(a.href).pathname === path;
+    });
+  if (activeLi) activeLi.classList.add('active');
 
   const navBrand = nav.querySelector('.nav-brand');
   const brandLink = navBrand.querySelector('.button');
